@@ -34,11 +34,30 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
                 4,
                 AttributeModifierSlot.MAINHAND
         ));
+        modify(e, Enchantments.PIERCING, Enchantment.definition(
+                crossbowsTag,
+                1,
+                4,
+                Enchantment.constantCost(20),
+                Enchantment.constantCost(50),
+                4,
+                AttributeModifierSlot.MAINHAND
+        ));
+
         final var bowTag = i.getOrThrow(CustomTag.BOW);
-        modify(e, Enchantments.PUNCH, Enchantment.definition(
+        modify(e, Enchantments.INFINITY, Enchantment.definition(
                 bowTag,
                 1,
                 1,
+                Enchantment.constantCost(20),
+                Enchantment.constantCost(50),
+                4,
+                AttributeModifierSlot.MAINHAND
+        ));
+        modify(e, Enchantments.PUNCH, Enchantment.definition(
+                bowTag,
+                1,
+                2,
                 Enchantment.constantCost(20),
                 Enchantment.constantCost(50),
                 4,

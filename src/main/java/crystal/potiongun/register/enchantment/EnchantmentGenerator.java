@@ -23,6 +23,7 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries e) {
         final var i = registries.getWrapperOrThrow(RegistryKeys.ITEM);
         RegisterEnchantments.Catalyst(i, e);
+        RegisterEnchantments.Shrapnel(i, e);
 
         final var crossbowsTag = i.getOrThrow(CustomTag.CROSSBOWS);
         modify(e, Enchantments.MULTISHOT, Enchantment.definition(

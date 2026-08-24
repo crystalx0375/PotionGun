@@ -1,13 +1,13 @@
 {
   "anvil_cost": 4,
   "description": {
-    "translate": "enchantment.minecraft.punch"
+    "translate": "enchantment.minecraft.piercing"
   },
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0
   },
-  "max_level": 2,
+  "max_level": 4,
   "min_cost": {
     "base": 20,
     "per_level_above_first": 0
@@ -15,6 +15,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#potiongun:enchantable/bow",
+  "supported_items": "#potiongun:enchantable/crossbows",
   "weight": 1
 }

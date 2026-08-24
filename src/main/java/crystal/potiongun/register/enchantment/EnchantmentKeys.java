@@ -13,7 +13,7 @@ import static crystal.potiongun.PotionGun.MOD_ID;
 public class EnchantmentKeys {
     protected static final Map<RegistryKey<Enchantment>, Boolean> ENCHANTMENT_KEYS = new LinkedHashMap<>();
 
-    protected static final RegistryKey<Enchantment> CATALYST = register("catalyst");
+    public static final RegistryKey<Enchantment> CATALYST = register("catalyst");
 
     private static RegistryKey<Enchantment> register(String name) {
         RegistryKey<Enchantment> key = RegistryKey.of(

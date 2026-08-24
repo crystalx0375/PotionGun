@@ -1,5 +1,6 @@
 package crystal.potiongun.util.logic;
 
+import crystal.potiongun.register.enchantment.EnchantmentKeys;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -19,6 +20,7 @@ import static crystal.potiongun.util.nbt.AddPotions.findPotions;
 public class OnUsage {
     public static void onUsage(@NotNull World world, LivingEntity user, PlayerEntity player, ItemStack stack, int remainingUseTicks) {
         final var registry = world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+
         final int quickChargeLevel = EnchantmentHelper.getLevel(registry.getOrThrow(Enchantments.QUICK_CHARGE), stack);
 
         final int currentDel = 20 - (quickChargeLevel * 2);
@@ -45,7 +47,15 @@ public class OnUsage {
                             user.getX(), user.getY(), user.getZ(),
                             SoundEvents.ITEM_CROSSBOW_LOADING_MIDDLE,
                             SoundCategory.PLAYERS,
-                            1.0f, 1.0f + (magazine * 0.1f)
+                            0.6f, 1.0f + (magazine * 0.1f)
+                    );
+
+                    world.playSound(
+                            null,
+                            user.getX(), user.getY(), user.getZ(),
+                            SoundEvents.BLOCK_BREWING_STAND_BREW,
+                            SoundCategory.PLAYERS,
+                            0.4f, 2.0f + (magazine * 0.1f)
                     );
                 }
             }

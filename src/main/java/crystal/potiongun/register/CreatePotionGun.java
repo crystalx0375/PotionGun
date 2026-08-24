@@ -83,9 +83,9 @@ public class CreatePotionGun extends Item {
         world.playSound(
                 null,
                 user.getX(), user.getY(), user.getZ(),
-                SoundEvents.ITEM_CROSSBOW_LOADING_END,
+                SoundEvents.BLOCK_BREWING_STAND_BREW,
                 SoundCategory.PLAYERS,
-                1.0f, 1.0f
+                0.6f, 0.9f
         );
         setAnimation(stack, 0);
 

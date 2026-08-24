@@ -1,5 +1,5 @@
 {
-  "anvil_cost": 4,
+  "anvil_cost": 3,
   "description": {
     "translate": "enchantment.potiongun.catalyst"
   },
@@ -7,7 +7,7 @@
     "base": 20,
     "per_level_above_first": 8
   },
-  "max_level": 1,
+  "max_level": 4,
   "min_cost": {
     "base": 10,
     "per_level_above_first": 8

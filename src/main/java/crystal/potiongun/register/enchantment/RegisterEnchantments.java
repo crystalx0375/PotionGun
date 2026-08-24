@@ -18,10 +18,10 @@ public class RegisterEnchantments {
                                     itemRegistry.getOrThrow(itemTagKey),
                                     itemRegistry.getOrThrow(itemTagKey),
                                     2,
-                                    1,
+                                    4,
                                     Enchantment.leveledCost(10, 8),
                                     Enchantment.leveledCost(20, 8),
-                                    4,
+                                    3,
                                     AttributeModifierSlot.MAINHAND
                             )
                     )

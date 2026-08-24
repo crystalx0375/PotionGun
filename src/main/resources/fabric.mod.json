@@ -2,15 +2,15 @@
 	"schemaVersion": 1,
 	"id": "potiongun",
 	"version": "${version}",
-	"name": "EVERGun",
-	"description": "A simple mod which adds an arrow gun into the game with 2 new vanilla enchantments",
+	"name": "Potiongun",
+	"description": "A simple mod which adds a potiongun into the game",
 	"authors": [
-        "EVER2east", "Crystal"
+        "Crystal"
 	],
 	"contact": {
         "homepage": "https://modrinth.com/project/evergun",
-        "sources": "https://github.com/crystalx375/EVERGun",
-        "issues": "https://github.com/crystalx375/EVERGun/issues"
+        "sources": "https://github.com/crystalx0375/PotionGun",
+        "issues": "https://github.com/crystalx0375/PotionGun"
 	},
 	"license": "MIT",
 	"icon": "assets/potiongun/icon.png",

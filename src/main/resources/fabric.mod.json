@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "evergun",
+	"id": "potiongun",
 	"version": "${version}",
 	"name": "EVERGun",
 	"description": "A simple mod which adds an arrow gun into the game with 2 new vanilla enchantments",
@@ -13,23 +13,23 @@
         "issues": "https://github.com/crystalx375/EVERGun/issues"
 	},
 	"license": "MIT",
-	"icon": "assets/evergun/icon.png",
+	"icon": "assets/potiongun/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"crystal.evergun.EVERgun"
+          "crystal.potiongun.PotionGun"
 		],
 		"client": [
-			"crystal.evergun.client.EVERgunClient"
+          "crystal.potiongun.client.PotiongunClient"
 		],
         "fabric-datagen": [
-          "crystal.evergun.DataGen"
+          "crystal.potiongun.DataGen"
         ]
 	},
 	"mixins": [
-		"evergun.mixins.json",
+		"potiongun.mixins.json",
 		{
-			"config": "evergun.client.mixins.json",
+			"config": "potiongun.client.mixins.json",
 			"environment": "client"
 		}
 	],

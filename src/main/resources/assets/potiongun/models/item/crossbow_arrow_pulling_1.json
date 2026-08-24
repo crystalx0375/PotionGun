@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/crossbow_pulling_1",
+  "textures": { "layer0": "potiongun:item/crossbow_arrow_pulling_1" }
+}

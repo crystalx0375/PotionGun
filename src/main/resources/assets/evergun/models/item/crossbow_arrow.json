@@ -1,4 +1,0 @@
-{
-  "parent": "minecraft:item/crossbow",
-  "textures": { "layer0": "evergun:item/crossbow_arrow" }
-}

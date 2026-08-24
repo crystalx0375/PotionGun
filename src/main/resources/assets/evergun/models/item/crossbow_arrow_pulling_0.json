@@ -1,4 +1,0 @@
-{
-  "parent": "minecraft:item/crossbow_pulling_0",
-  "textures": { "layer0": "evergun:item/crossbow_arrow_pulling_0" }
-}

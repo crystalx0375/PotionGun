@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.potiongun.decay"
+  },
+  "max_cost": {
+    "base": 20,
+    "per_level_above_first": 8
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 8
+  },
+  "primary_items": "#potiongun:enchantable/crossbows",
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#potiongun:enchantable/crossbows",
+  "weight": 2
+}

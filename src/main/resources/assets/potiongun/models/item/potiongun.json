@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:item/crossbow",
+  "textures": {
+    "layer0": "potiongun:item/crossbow_standby"
+  },
+  "overrides": [
+    { "predicate": { "potiongun:animation": 0.4 }, "model": "potiongun:item/crossbow_pulling_0" },
+    { "predicate": { "potiongun:animation": 0.7 }, "model": "potiongun:item/crossbow_pulling_1" },
+    { "predicate": { "potiongun:animation": 0.9 }, "model": "potiongun:item/crossbow_pulling_2" },
+
+    { "predicate": { "potiongun:ammo": 1.0 }, "model": "potiongun:item/crossbow_arrow" },
+
+    { "predicate": { "potiongun:animation_with_arrow": 0.4 }, "model": "potiongun:item/crossbow_arrow_pulling_0" },
+    { "predicate": { "potiongun:animation_with_arrow": 0.7 }, "model": "potiongun:item/crossbow_arrow_pulling_1" },
+    { "predicate": { "potiongun:animation_with_arrow": 0.8 }, "model": "potiongun:item/crossbow_arrow_pulling_2" }
+  ]
+}

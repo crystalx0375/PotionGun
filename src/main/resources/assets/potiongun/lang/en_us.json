@@ -1,5 +1,5 @@
 {
-  "item.potiongun.potiongun": "Arrow Gun",
-  "enchantment.potiongun.frost":  "Frostbite",
+  "item.potiongun.potiongun": "PotionGun",
+  "enchantment.potiongun.catalyst":  "Catalyst",
   "enchantment.potiongun.decay": "Decay"
 }

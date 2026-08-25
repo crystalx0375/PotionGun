@@ -2,6 +2,7 @@ package crystal.potiongun.util.potion;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
@@ -23,14 +24,17 @@ public class ShrapnelPotionEntity extends PotionEntity {
         super.onCollision(hitResult);
 
         for (LivingEntity entity : getAllEntities()) {
-            entity.damage(
-                    getWorld().getDamageSources().generic(),
-                    shrapnelLevel + 1F - (float) (hitResult.getPos().squaredDistanceTo(entity.getPos()) / 2)
-            );
+            final float dist = (float) hitResult.getPos().distanceTo(entity.getPos());
+
+            float damage = shrapnelLevel * 2 - dist;
+            if (entity instanceof PlayerEntity) {
+                damage *= 0.5F;
+            }
+            entity.damage(getWorld().getDamageSources().generic(), damage);
         }
     }
 
     private List<LivingEntity> getAllEntities() {
-        return getWorld().getEntitiesByClass(LivingEntity.class, getBoundingBox().expand(1.5), entity -> entity != getOwner());
+        return getWorld().getEntitiesByClass(LivingEntity.class, getBoundingBox().expand(3), entity -> entity != getOwner());
     }
 }

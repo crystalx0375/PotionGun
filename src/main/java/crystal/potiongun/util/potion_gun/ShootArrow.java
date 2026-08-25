@@ -33,7 +33,14 @@ public class ShootArrow {
                 shooter.getX(), shooter.getY(), shooter.getZ(),
                 SoundEvents.ENTITY_SPLASH_POTION_THROW,
                 SoundCategory.PLAYERS,
-                0.7F, 0.9F
+                0.8F, 0.9F
+        );
+        world.playSound(
+                null,
+                shooter.getX(), shooter.getY(), shooter.getZ(),
+                SoundEvents.ITEM_CROSSBOW_SHOOT,
+                SoundCategory.PLAYERS,
+                0.2F, 1F
         );
     }
 }

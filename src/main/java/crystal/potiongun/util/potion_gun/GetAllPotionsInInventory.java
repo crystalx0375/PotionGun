@@ -10,7 +10,9 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.List;
 
-public class GetPotions {
+public class GetAllPotionsInInventory {
+    private GetAllPotionsInInventory() {}
+
     public static List<ItemStack> getAllPotions(final ItemStack stack, final RegistryWrapper.WrapperLookup registries) {
         final List<ItemStack> list = Lists.newArrayList();
         final NbtComponent nbtComponent = stack.get(DataComponentTypes.CUSTOM_DATA);
@@ -30,7 +32,6 @@ public class GetPotions {
                 }
             }
         }
-
         return list;
     }
 }

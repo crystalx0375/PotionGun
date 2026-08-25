@@ -9,7 +9,10 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 
 public class RegisterEnchantments {
-    protected static void Catalyst(RegistryWrapper<Item> itemRegistry, FabricDynamicRegistryProvider.Entries entries) {
+    private RegisterEnchantments() {}
+
+
+    protected static void catalyst(RegistryWrapper<Item> itemRegistry, FabricDynamicRegistryProvider.Entries entries) {
         if (EnchantmentKeys.ENCHANTMENT_KEYS.containsKey(EnchantmentKeys.CATALYST)) {
             final TagKey<Item> itemTagKey = CustomTag.POTIONGUN_COMPATIBLE;
 
@@ -29,7 +32,7 @@ public class RegisterEnchantments {
         }
     }
 
-    protected static void Shrapnel(RegistryWrapper<Item> itemRegistry, FabricDynamicRegistryProvider.Entries entries) {
+    protected static void shrapnel(RegistryWrapper<Item> itemRegistry, FabricDynamicRegistryProvider.Entries entries) {
         if (EnchantmentKeys.ENCHANTMENT_KEYS.containsKey(EnchantmentKeys.SHRAPNEL)) {
             final TagKey<Item> itemTagKey = CustomTag.POTIONGUN_COMPATIBLE;
 

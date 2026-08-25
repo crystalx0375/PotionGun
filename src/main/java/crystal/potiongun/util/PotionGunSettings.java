@@ -7,6 +7,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class PotionGunSettings {
+    private PotionGunSettings() {}
+
     public static final Item GUN = Registry.register(
             Registries.ITEM,
             PotionGun.id("potiongun"),

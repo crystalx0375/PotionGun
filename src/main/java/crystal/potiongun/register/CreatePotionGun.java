@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import static crystal.potiongun.util.potion_gun.GetPotions.getAllPotions;
+import static crystal.potiongun.util.potion_gun.GetAllPotionsInInventory.getAllPotions;
 import static crystal.potiongun.util.potion_gun.OnUsage.onUsage;
 import static crystal.potiongun.util.potion_gun.ShootArrow.shoot;
 import static crystal.potiongun.util.nbt.AddPotions.removePotionToNbt;

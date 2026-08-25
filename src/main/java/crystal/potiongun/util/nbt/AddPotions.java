@@ -11,9 +11,9 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
 
-
+@SuppressWarnings("java:S1192")
 public class AddPotions {
-    private static final String POTIONS = "potions";
+    private AddPotions() {}
 
     public static void addPotionToNbt(final World world, final ItemStack crossbow, final ItemStack potion) {
         final var registries = world.getRegistryManager();
@@ -21,11 +21,11 @@ public class AddPotions {
 
         crossbow.apply(DataComponentTypes.CUSTOM_DATA, NbtComponent.DEFAULT, nbtComponent ->
                 nbtComponent.apply(nbt -> {
-                    final NbtList list = nbt.getList(POTIONS, NbtElement.COMPOUND_TYPE);
+                    final NbtList list = nbt.getList("potions", NbtElement.COMPOUND_TYPE);
                     final NbtElement potionNbt = potion.encode(registries);
                     list.addFirst(potionNbt);
 
-                    nbt.put(POTIONS, list);
+                    nbt.put("potions", list);
                     nbt.putInt("magazine", list.size());
                     nbt.putBoolean("charged", true);
                 })
@@ -37,7 +37,7 @@ public class AddPotions {
 
         stack.apply(DataComponentTypes.CUSTOM_DATA, NbtComponent.DEFAULT, comp ->
                 comp.apply(nbt -> {
-                    final NbtList list = nbt.getList(POTIONS, NbtElement.COMPOUND_TYPE);
+                    final NbtList list = nbt.getList("potions", NbtElement.COMPOUND_TYPE);
                     if (!list.isEmpty()) {
                         final NbtCompound potionNbt = list.getCompound(list.size() - 1);
                         result[0] = ItemStack.fromNbtOrEmpty(registries, potionNbt);

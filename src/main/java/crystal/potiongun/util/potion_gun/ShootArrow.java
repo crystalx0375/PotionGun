@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import static crystal.potiongun.util.potion.PotionLogic.*;
 
 public class ShootArrow {
+    private ShootArrow() {}
 
     public static void shoot(final World world, final LivingEntity shooter, final ItemStack potionGun, final ItemStack potionStack) {
         potionGun.damage(3, shooter, shooter.getPreferredEquipmentSlot(potionGun));
@@ -24,8 +25,8 @@ public class ShootArrow {
         final int powerLevel = EnchantmentHelper.getLevel(registry.getOrThrow(Enchantments.POWER), potionGun);
 
         if (catalystLevel > 0) setExtraDuration(potionStack, catalystLevel);
-        if (shrapnelLevel > 0) spawnPotionAndPrepare(world, shooter, potionStack, shrapnelLevel, powerLevel);
-        else spawnPotionAndPrepare(world, shooter, potionStack, powerLevel);
+        if (shrapnelLevel > 0) createAndSpawnPotion(world, shooter, potionStack, shrapnelLevel, powerLevel);
+        else createAndSpawnPotion(world, shooter, potionStack, powerLevel);
 
         world.playSound(
                 null,

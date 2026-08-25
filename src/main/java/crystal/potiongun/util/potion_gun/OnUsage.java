@@ -17,6 +17,8 @@ import static crystal.potiongun.util.nbt.AddPotions.addPotionToNbt;
 import static crystal.potiongun.util.nbt.AddPotions.findPotions;
 
 public class OnUsage {
+    private OnUsage() {}
+
     public static void onUsage(@NotNull final World world, final LivingEntity user, final PlayerEntity player, final ItemStack stack, final int remainingUseTicks) {
         final var registry = world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         final int quickChargeLevel = EnchantmentHelper.getLevel(registry.getOrThrow(Enchantments.QUICK_CHARGE), stack);
@@ -32,12 +34,12 @@ public class OnUsage {
                 if (player.getAbilities().creativeMode || !ammoStack.isEmpty()) {
                     final ItemStack potionToSave = ammoStack.copy();
                     potionToSave.setCount(1);
+                    addPotionToNbt(world, stack, potionToSave);
 
                     if (!world.isClient && !player.getAbilities().creativeMode) {
                         ammoStack.decrement(1);
                     }
 
-                    addPotionToNbt(world, stack, potionToSave);
 
                     world.playSound(
                             null,

@@ -11,6 +11,8 @@ import java.util.Map;
 import static crystal.potiongun.PotionGun.MOD_ID;
 
 public class EnchantmentKeys {
+    private EnchantmentKeys() {}
+
     protected static final Map<RegistryKey<Enchantment>, Boolean> ENCHANTMENT_KEYS = new LinkedHashMap<>();
 
     public static final RegistryKey<Enchantment> CATALYST = register("catalyst");

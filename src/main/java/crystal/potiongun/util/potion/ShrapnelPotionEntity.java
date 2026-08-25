@@ -19,13 +19,13 @@ public class ShrapnelPotionEntity extends PotionEntity {
 
     @Override
     protected void onCollision(HitResult hitResult) {
-        if (getWorld().isClient || shrapnelLevel <= 0) return;
+        if (getWorld().isClient) return;
         super.onCollision(hitResult);
 
         for (LivingEntity entity : getAllEntities()) {
             entity.damage(
                     getWorld().getDamageSources().generic(),
-                    shrapnelLevel + 1.0F
+                    shrapnelLevel + 1F - (float) (hitResult.getPos().squaredDistanceTo(entity.getPos()) / 2)
             );
         }
     }

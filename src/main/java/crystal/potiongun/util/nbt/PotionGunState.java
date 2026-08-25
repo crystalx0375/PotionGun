@@ -7,6 +7,8 @@ import net.minecraft.nbt.NbtCompound;
 
 
 public class PotionGunState {
+    private PotionGunState() {}
+
     public static void setAnimation(final ItemStack stack, final float amount) {
         final NbtComponent currentComponent = stack.getOrDefault(DataComponentTypes.CUSTOM_DATA, NbtComponent.DEFAULT);
         final NbtCompound nbt = currentComponent.copyNbt();

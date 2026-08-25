@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class PotionLogic {
+    private PotionLogic() {}
+
     public static void prepareAndSpawnPotion(final World world, final LivingEntity entity, final PotionEntity potion, final int powerLevel) {
         final Vec3d lookVec = entity.getRotationVector();
 
@@ -34,7 +36,7 @@ public class PotionLogic {
         world.spawnEntity(potion);
     }
 
-    public static void spawnPotionAndPrepare(final World world, final LivingEntity shooter, final ItemStack potionStack, final int powerLevel) {
+    public static void createAndSpawnPotion(final World world, final LivingEntity shooter, final ItemStack potionStack, final int powerLevel) {
         final PotionEntity potion = new PotionEntity(
                 EntityType.POTION,
                 world
@@ -44,7 +46,7 @@ public class PotionLogic {
         prepareAndSpawnPotion(world, shooter, potion, powerLevel);
     }
 
-    public static void spawnPotionAndPrepare(final World world, final LivingEntity shooter, final ItemStack potionStack, final int shrapnelLevel, final int powerLevel) {
+    public static void createAndSpawnPotion(final World world, final LivingEntity shooter, final ItemStack potionStack, final int shrapnelLevel, final int powerLevel) {
         final PotionEntity potion = new ShrapnelPotionEntity(
                 EntityType.POTION,
                 world,

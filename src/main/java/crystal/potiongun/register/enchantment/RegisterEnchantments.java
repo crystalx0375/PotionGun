@@ -28,4 +28,24 @@ public class RegisterEnchantments {
                     .build(EnchantmentKeys.CATALYST.getValue()));
         }
     }
+
+    protected static void Shrapnel(RegistryWrapper<Item> itemRegistry, FabricDynamicRegistryProvider.Entries entries) {
+        if (EnchantmentKeys.ENCHANTMENT_KEYS.containsKey(EnchantmentKeys.SHRAPNEL)) {
+            final TagKey<Item> itemTagKey = CustomTag.POTIONGUN_COMPATIBLE;
+
+            entries.add(EnchantmentKeys.SHRAPNEL, Enchantment.builder(
+                            Enchantment.definition(
+                                    itemRegistry.getOrThrow(itemTagKey),
+                                    itemRegistry.getOrThrow(itemTagKey),
+                                    2,
+                                    3,
+                                    Enchantment.leveledCost(10, 8),
+                                    Enchantment.leveledCost(20, 8),
+                                    2,
+                                    AttributeModifierSlot.MAINHAND
+                            )
+                    )
+                    .build(EnchantmentKeys.SHRAPNEL.getValue()));
+        }
+    }
 }

@@ -26,13 +26,7 @@
           "crystal.potiongun.DataGen"
         ]
 	},
-	"mixins": [
-		"potiongun.mixins.json",
-		{
-			"config": "potiongun.client.mixins.json",
-			"environment": "client"
-		}
-	],
+
 	"depends": {
 		"fabricloader": ">=0.16.10",
 		"minecraft": ">=1.21 <=1.21.1",

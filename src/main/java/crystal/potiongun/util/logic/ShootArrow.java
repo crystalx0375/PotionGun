@@ -39,14 +39,21 @@ public class ShootArrow {
                         crossbow
                 );
 
+        final int shrapnelLevel =
+                EnchantmentHelper.getLevel(
+                        enchantmentRegistry.getOrThrow(EnchantmentKeys.SHRAPNEL),
+                        crossbow
+                );
+
         final ItemStack modifiedPotion = potionStack.copy();
 
         if (catalystLevel > 0) {
             extendPotionEffects(modifiedPotion, catalystLevel);
         }
 
-        final PotionEntity potion = createPotion(world);
 
+
+        final PotionEntity potion = createPotion(world, shrapnelLevel);
         potion.setItem(modifiedPotion);
 
         final var power =
@@ -87,7 +94,7 @@ public class ShootArrow {
 
         if (contents == null) return;
 
-        final int extraDuration = catalystLevel * 40;
+        final int extraDuration = catalystLevel * 20;
 
         final List<StatusEffectInstance> effects = new ArrayList<>();
 
@@ -119,10 +126,11 @@ public class ShootArrow {
     }
 
 
-    private static PotionEntity createPotion(World world) {
-        return new PotionEntity(
+    private static PotionEntity createPotion(World world, int shrapnelLevel) {
+        return new ShrapnelPotionEntity(
                 EntityType.POTION,
-                world
+                world,
+                shrapnelLevel
         );
     }
 

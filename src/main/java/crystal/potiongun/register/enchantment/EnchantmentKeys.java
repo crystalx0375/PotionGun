@@ -14,6 +14,7 @@ public class EnchantmentKeys {
     protected static final Map<RegistryKey<Enchantment>, Boolean> ENCHANTMENT_KEYS = new LinkedHashMap<>();
 
     public static final RegistryKey<Enchantment> CATALYST = register("catalyst");
+    public static final RegistryKey<Enchantment> SHRAPNEL = register("shrapnel");
 
     private static RegistryKey<Enchantment> register(String name) {
         RegistryKey<Enchantment> key = RegistryKey.of(

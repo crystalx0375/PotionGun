@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "translate": "enchantment.potiongun.shrapnel"
+  },
+  "max_cost": {
+    "base": 20,
+    "per_level_above_first": 8
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 8
+  },
+  "primary_items": "#potiongun:enchantable/potiongun_compatible",
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#potiongun:enchantable/potiongun_compatible",
+  "weight": 2
+}

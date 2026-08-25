@@ -1,6 +1,5 @@
-package crystal.potiongun.util.logic;
+package crystal.potiongun.util.potion_gun;
 
-import crystal.potiongun.register.enchantment.EnchantmentKeys;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -18,13 +17,11 @@ import static crystal.potiongun.util.nbt.AddPotions.addPotionToNbt;
 import static crystal.potiongun.util.nbt.AddPotions.findPotions;
 
 public class OnUsage {
-    public static void onUsage(@NotNull World world, LivingEntity user, PlayerEntity player, ItemStack stack, int remainingUseTicks) {
+    public static void onUsage(@NotNull final World world, final LivingEntity user, final PlayerEntity player, final ItemStack stack, final int remainingUseTicks) {
         final var registry = world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
-
         final int quickChargeLevel = EnchantmentHelper.getLevel(registry.getOrThrow(Enchantments.QUICK_CHARGE), stack);
 
         final int currentDel = 20 - (quickChargeLevel * 2);
-
         setAnimation(stack, (float) ((remainingUseTicks % currentDel) * -1) / currentDel);
 
         if ((remainingUseTicks - 1) % currentDel == 0) {
@@ -49,7 +46,6 @@ public class OnUsage {
                             SoundCategory.PLAYERS,
                             0.6f, 1.0f + (magazine * 0.1f)
                     );
-
                     world.playSound(
                             null,
                             user.getX(), user.getY(), user.getZ(),

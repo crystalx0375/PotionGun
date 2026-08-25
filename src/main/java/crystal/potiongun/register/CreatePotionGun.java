@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import static crystal.potiongun.util.logic.GetPotions.getPotions;
-import static crystal.potiongun.util.logic.OnUsage.onUsage;
-import static crystal.potiongun.util.logic.ShootArrow.shoot;
+import static crystal.potiongun.util.potion_gun.GetPotions.getAllPotions;
+import static crystal.potiongun.util.potion_gun.OnUsage.onUsage;
+import static crystal.potiongun.util.potion_gun.ShootArrow.shoot;
 import static crystal.potiongun.util.nbt.AddPotions.removePotionToNbt;
 import static crystal.potiongun.util.nbt.PotionGunState.*;
 
@@ -94,7 +94,7 @@ public class CreatePotionGun extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        final List<ItemStack> list = getPotions(stack, context.getRegistryLookup());
+        final List<ItemStack> list = getAllPotions(stack, context.getRegistryLookup());
         final int magazine = getMagazine(stack);
         if (!list.isEmpty()) {
             final int magazineIndex = magazine - 1;

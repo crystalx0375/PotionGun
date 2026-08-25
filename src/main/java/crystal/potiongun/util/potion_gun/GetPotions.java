@@ -1,4 +1,4 @@
-package crystal.potiongun.util.logic;
+package crystal.potiongun.util.potion_gun;
 
 import com.google.common.collect.Lists;
 import net.minecraft.component.DataComponentTypes;
@@ -11,7 +11,7 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.List;
 
 public class GetPotions {
-    public static List<ItemStack> getPotions(ItemStack stack, RegistryWrapper.WrapperLookup registries) {
+    public static List<ItemStack> getAllPotions(final ItemStack stack, final RegistryWrapper.WrapperLookup registries) {
         final List<ItemStack> list = Lists.newArrayList();
         final NbtComponent nbtComponent = stack.get(DataComponentTypes.CUSTOM_DATA);
         if (nbtComponent == null) {
@@ -23,7 +23,7 @@ public class GetPotions {
             final NbtList nbtList = nbt.getList("potions", 10);
             for (int i = 0; i < nbtList.size(); ++i) {
                 final NbtCompound potionNbt = nbtList.getCompound(i);
-                ItemStack potionStack = ItemStack.fromNbtOrEmpty(registries, potionNbt);
+                final ItemStack potionStack = ItemStack.fromNbtOrEmpty(registries, potionNbt);
 
                 if (!potionStack.isEmpty()) {
                     list.add(potionStack);

@@ -32,6 +32,7 @@ public class CustomTag extends FabricTagProvider.ItemTagProvider {
         super(output, completableFuture, blockTagProvider);
     }
 
+    @SuppressWarnings("java:S1192")
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(CROSSBOWS).add(Items.CROSSBOW);

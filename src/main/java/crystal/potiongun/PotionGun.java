@@ -15,9 +15,8 @@ public class PotionGun implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        final Item registeredGUN = PotionGunSettings.GUN;
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((itemGroup) -> itemGroup.add(registeredGUN));
-		LOGGER.info("Loading Potion Gun");
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(itemGroup -> itemGroup.add(PotionGunSettings.GUN));
+		LOGGER.info("Potion Gun successful initialized");
     }
 
 	public static Identifier id(String path) {

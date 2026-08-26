@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.potiongun.quick_shot"
+  },
+  "exclusive_set": "#potiongun:incompatible_with_others",
+  "max_cost": {
+    "base": 20,
+    "per_level_above_first": 8
+  },
+  "max_level": 5,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 8
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#potiongun:enchantable/potiongun_compatible",
+  "weight": 5
+}

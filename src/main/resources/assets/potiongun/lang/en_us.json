@@ -1,5 +1,8 @@
 {
   "item.potiongun.potiongun": "PotionGun",
   "enchantment.potiongun.catalyst":  "Catalyst",
-  "enchantment.potiongun.shrapnel": "Shrapnel"
+  "enchantment.potiongun.shrapnel": "Shrapnel",
+  "enchantment.potiongun.volley": "Volley",
+  "enchantment.potiongun.quick_shot": "Quick Shot",
+  "enchantment.potiongun.magazine_expansion": "Much more"
 }

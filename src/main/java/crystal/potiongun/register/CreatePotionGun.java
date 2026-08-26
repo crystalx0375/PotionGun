@@ -14,6 +14,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
+import crystal.potiongun.register.enchantment.EnchantmentKeys;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.enchantment.EnchantmentHelper;
 
 import java.util.List;
 
@@ -53,17 +56,27 @@ public class CreatePotionGun extends Item {
         final ItemStack stack = user.getStackInHand(hand);
         final int ammo = getMagazine(stack);
 
-        if (ammo > 0) {
-            final ItemStack potionToShoot = removePotionToNbt(stack, world.getRegistryManager());
+        final var registry = world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        final int magExpLevel = EnchantmentHelper.getLevel(registry.getOrThrow(EnchantmentKeys.MAGAZINE_EXPANSION), stack);
+        final int maxCapacity = 4 + magExpLevel;
 
+        boolean canReload = ammo < maxCapacity;
+        boolean wantsToReload = ammo == 0 || (ammo > 0 && user.isSneaking() && canReload);
+
+        if (wantsToReload) {
+            user.setCurrentHand(hand);
+            return TypedActionResult.consume(stack);
+        } else if (ammo > 0) {
+            final int quickShotLevel = EnchantmentHelper.getLevel(registry.getOrThrow(EnchantmentKeys.QUICK_SHOT), stack);
+            
+            final ItemStack potionToShoot = removePotionToNbt(stack, world.getRegistryManager());
             setMagazine(stack, ammo - 1);
             shoot(world, user, stack, potionToShoot);
-            user.getItemCooldownManager().set(stack.getItem(), 5);
+            user.getItemCooldownManager().set(stack.getItem(), Math.max(1, 5 - quickShotLevel));
 
             return TypedActionResult.consume(stack);
         }
-        user.setCurrentHand(hand);
-        return TypedActionResult.consume(stack);
+        return TypedActionResult.pass(stack);
     }
 
     @Override
@@ -106,7 +119,7 @@ public class CreatePotionGun extends Item {
                         .append(ScreenTexts.SPACE)
                         .append(projectileStack.toHoverableText()).formatted(Formatting.GRAY)
                         .append(ScreenTexts.SPACE)
-                        .append((Text.literal(magazine + "/4")).formatted(Formatting.AQUA))
+                        .append((Text.literal(magazine + "/" + (4 + EnchantmentHelper.getLevel(context.getRegistryLookup().getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(EnchantmentKeys.MAGAZINE_EXPANSION), stack)))).formatted(Formatting.AQUA))
                 );
             }
         }

@@ -1,6 +1,5 @@
 package crystal.potiongun.register.enchantment;
 
-import crystal.potiongun.register.CustomTag;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -11,6 +10,9 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
+
+import static crystal.potiongun.register.CustomTag.BOW;
+import static crystal.potiongun.register.CustomTag.CROSSBOWS;
 
 
 public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
@@ -25,49 +27,19 @@ public class EnchantmentGenerator extends FabricDynamicRegistryProvider {
         RegisterEnchantments.catalyst(i, e);
         RegisterEnchantments.shrapnel(i, e);
 
-        final var crossbowsTag = i.getOrThrow(CustomTag.CROSSBOWS);
-        modify(e, Enchantments.MULTISHOT, Enchantment.definition(
-                crossbowsTag,
+        modify(e, Enchantments.POWER, Enchantment.definition(
+                i.getOrThrow(BOW),
                 1,
-                1,
+                5,
                 Enchantment.constantCost(20),
                 Enchantment.constantCost(50),
                 4,
                 AttributeModifierSlot.MAINHAND
         ));
-        modify(e, Enchantments.PIERCING, Enchantment.definition(
-                crossbowsTag,
+        modify(e, Enchantments.QUICK_CHARGE, Enchantment.definition(
+                i.getOrThrow(CROSSBOWS),
                 1,
-                4,
-                Enchantment.constantCost(20),
-                Enchantment.constantCost(50),
-                4,
-                AttributeModifierSlot.MAINHAND
-        ));
-
-        final var bowTag = i.getOrThrow(CustomTag.BOW);
-        modify(e, Enchantments.INFINITY, Enchantment.definition(
-                bowTag,
-                1,
-                1,
-                Enchantment.constantCost(20),
-                Enchantment.constantCost(50),
-                4,
-                AttributeModifierSlot.MAINHAND
-        ));
-        modify(e, Enchantments.PUNCH, Enchantment.definition(
-                bowTag,
-                1,
-                2,
-                Enchantment.constantCost(20),
-                Enchantment.constantCost(50),
-                4,
-                AttributeModifierSlot.MAINHAND
-        ));
-        modify(e, Enchantments.FLAME, Enchantment.definition(
-                bowTag,
-                1,
-                1,
+                3,
                 Enchantment.constantCost(20),
                 Enchantment.constantCost(50),
                 4,

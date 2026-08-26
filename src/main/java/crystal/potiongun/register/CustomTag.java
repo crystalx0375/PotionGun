@@ -20,12 +20,12 @@ public class CustomTag extends FabricTagProvider.ItemTagProvider {
 
     public static final TagKey<Item> CROSSBOWS = TagKey.of(
             RegistryKeys.ITEM,
-            Identifier.of("potiongun", "enchantable/crossbows")
+            Identifier.of(MOD_ID, "enchantable/crossbow")
     );
 
     public static final TagKey<Item> BOW = TagKey.of(
             RegistryKeys.ITEM,
-            Identifier.of("potiongun", "enchantable/bow")
+            Identifier.of(MOD_ID, "enchantable/bow")
     );
 
     public CustomTag(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture, @Nullable BlockTagProvider blockTagProvider) {
@@ -35,11 +35,8 @@ public class CustomTag extends FabricTagProvider.ItemTagProvider {
     @SuppressWarnings("java:S1192")
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(CROSSBOWS).add(Items.CROSSBOW);
-        getOrCreateTagBuilder(BOW).add(Items.BOW);
-
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "enchantable/crossbow"))).add(PotionGunSettings.GUN);
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "enchantable/bow"))).add(PotionGunSettings.GUN);
+        getOrCreateTagBuilder(BOW).add(Items.BOW).add(PotionGunSettings.GUN);
+        getOrCreateTagBuilder(CROSSBOWS).add(Items.CROSSBOW).add(PotionGunSettings.GUN);
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "enchantable/durability"))).add(PotionGunSettings.GUN);
 
         getOrCreateTagBuilder(POTIONGUN_COMPATIBLE).add(PotionGunSettings.GUN);

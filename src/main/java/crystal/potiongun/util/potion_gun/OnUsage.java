@@ -2,6 +2,7 @@ package crystal.potiongun.util.potion_gun;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import crystal.potiongun.register.enchantment.EnchantmentKeys;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -22,6 +23,8 @@ public class OnUsage {
     public static void onUsage(@NotNull final World world, final LivingEntity user, final PlayerEntity player, final ItemStack stack, final int remainingUseTicks) {
         final var registry = world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         final int quickChargeLevel = EnchantmentHelper.getLevel(registry.getOrThrow(Enchantments.QUICK_CHARGE), stack);
+        final int magExpLevel = EnchantmentHelper.getLevel(registry.getOrThrow(EnchantmentKeys.MAGAZINE_EXPANSION), stack);
+        final int maxCapacity = 4 + magExpLevel;
 
         final int currentDel = 20 - (quickChargeLevel * 2);
         setAnimation(stack, (float) ((remainingUseTicks % currentDel) * -1) / currentDel);
@@ -29,7 +32,7 @@ public class OnUsage {
         if ((remainingUseTicks - 1) % currentDel == 0) {
             final int magazine = getMagazine(stack);
 
-            if (magazine < 4) {
+            if (magazine < maxCapacity) {
                 final ItemStack ammoStack = findPotions(player);
                 if (player.getAbilities().creativeMode || !ammoStack.isEmpty()) {
                     final ItemStack potionToSave = ammoStack.copy();

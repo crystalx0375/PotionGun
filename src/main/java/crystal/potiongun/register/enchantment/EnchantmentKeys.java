@@ -17,7 +17,8 @@ public class EnchantmentKeys {
 
     public static final RegistryKey<Enchantment> CATALYST = register("catalyst");
     public static final RegistryKey<Enchantment> SHRAPNEL = register("shrapnel");
-
+    public static final RegistryKey<Enchantment> QUICK_SHOT = register("quick_shot");
+    public static final RegistryKey<Enchantment> MAGAZINE_EXPANSION = register("magazine_expansion");
     private static RegistryKey<Enchantment> register(String name) {
         RegistryKey<Enchantment> key = RegistryKey.of(
                 RegistryKeys.ENCHANTMENT,

@@ -1,5 +1,8 @@
 {
   "item.potiongun.potiongun": "Зельемет",
   "enchantment.potiongun.catalyst":  "Катализатор",
-  "enchantment.potiongun.shrapnel": "Шрапнель"
+  "enchantment.potiongun.shrapnel": "Шрапнель",
+  "enchantment.potiongun.volley": "Залп",
+  "enchantment.potiongun.quick_shot": "Скорострел",
+  "enchantment.potiongun.magazine_expansion": "Ещё чуть-чуть"
 }

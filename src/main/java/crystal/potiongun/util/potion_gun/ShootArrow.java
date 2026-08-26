@@ -25,8 +25,7 @@ public class ShootArrow {
         final int powerLevel = EnchantmentHelper.getLevel(registry.getOrThrow(Enchantments.POWER), potionGun);
 
         if (catalystLevel > 0) setExtraDuration(potionStack, catalystLevel);
-        if (shrapnelLevel > 0) createAndSpawnPotion(world, shooter, potionStack, shrapnelLevel, powerLevel);
-        else createAndSpawnPotion(world, shooter, potionStack, powerLevel);
+        createAndSpawnPotion(world, shooter, potionStack, shrapnelLevel, powerLevel);
 
         world.playSound(
                 null,

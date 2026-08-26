@@ -26,9 +26,9 @@ public class ShrapnelPotionEntity extends PotionEntity {
         for (LivingEntity entity : getAllEntities()) {
             final float dist = (float) hitResult.getPos().distanceTo(entity.getPos());
 
-            float damage = shrapnelLevel * 2 - dist;
+            float damage = 10 + shrapnelLevel * 4 - dist;
             if (entity instanceof PlayerEntity) {
-                damage *= 0.5F;
+                damage *= 0.1363636364F;
             }
             entity.damage(getWorld().getDamageSources().generic(), damage);
         }

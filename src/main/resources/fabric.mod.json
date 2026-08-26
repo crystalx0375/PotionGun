@@ -2,13 +2,13 @@
 	"schemaVersion": 1,
 	"id": "potiongun",
 	"version": "${version}",
-	"name": "Potiongun",
-	"description": "A simple mod which adds a potiongun into the game",
+	"name": "Potion Gun",
+	"description": "A simple mod which adds a Potion Gun into the game",
 	"authors": [
-        "Crystal"
+        "crystal", "EVER2east", "lowdefqwop"
 	],
 	"contact": {
-        "homepage": "https://modrinth.com/project/evergun",
+        "homepage": "https://modrinth.com/project/potion-gun",
         "sources": "https://github.com/crystalx0375/PotionGun",
         "issues": "https://github.com/crystalx0375/PotionGun"
 	},

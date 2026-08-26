@@ -29,21 +29,11 @@ public class PotionLogic {
                 lookVec.x,
                 lookVec.y,
                 lookVec.z,
-                1.25F + (powerLevel * 0.15F),
+                1.25F + (powerLevel * 0.09F),
                 1
         );
 
         world.spawnEntity(potion);
-    }
-
-    public static void createAndSpawnPotion(final World world, final LivingEntity shooter, final ItemStack potionStack, final int powerLevel) {
-        final PotionEntity potion = new PotionEntity(
-                EntityType.POTION,
-                world
-        );
-        potion.setItem(potionStack);
-
-        prepareAndSpawnPotion(world, shooter, potion, powerLevel);
     }
 
     public static void createAndSpawnPotion(final World world, final LivingEntity shooter, final ItemStack potionStack, final int shrapnelLevel, final int powerLevel) {
@@ -61,14 +51,14 @@ public class PotionLogic {
         final PotionContentsComponent contents = potionStack.get(DataComponentTypes.POTION_CONTENTS);
         if (contents == null) return;
 
-        final int extraDuration = catalystLevel * 20;
+        final float multiplierBase = 1 + catalystLevel * 0.1F;
         final List<StatusEffectInstance> effects = new ArrayList<>();
 
         for (StatusEffectInstance effect : contents.getEffects()) {
             effects.add(
                     new StatusEffectInstance(
                             effect.getEffectType(),
-                            effect.getDuration() + extraDuration,
+                            (int) (effect.getDuration() * multiplierBase),
                             effect.getAmplifier(),
                             effect.isAmbient(),
                             effect.shouldShowParticles(),
